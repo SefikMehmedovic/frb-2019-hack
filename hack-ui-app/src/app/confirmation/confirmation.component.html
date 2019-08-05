@@ -1,11 +1,14 @@
 <div class="confirmation-page">
 
-<body>
 <div class="container-Fluid">
-  <h1>You're signed up!</h1>
-  <img src="">
+  <h2>You're signed up!</h2>
+    <h1> You are Player {{ player }} </h1>
 </div>
 
-</body>`
-</div>
+<div class="container-Fluid">
+  <h3> Game is Starting in:
+    <countdown [config]="{leftTime: 1000}">$!m!:$!s!</countdown>
+  </h3>
+  </div>
 
+</div>
