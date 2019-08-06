@@ -18,7 +18,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Controller
-@RequestMapping("/api/games")
+@RequestMapping("/api/")
 public class GameService {
     private static final Integer DEFAULT_QUESTION_NUMBERS = 10;
     private static final Integer BONUS_SCORE = 1;
@@ -38,13 +38,13 @@ public class GameService {
     private static Map<Integer, List<Question>> gameQuestionsMap = new ConcurrentHashMap<>();
     private static Map<Integer, Date> answerTimeMap = new ConcurrentHashMap<>();
 
-    @GetMapping(value = "/{gameId}")
+    @GetMapping(value = "/games/{gameId}")
     @ResponseBody
     public Game getGame(@RequestParam(name = "gameId") Integer gameId) {
         return gameRepository.getOne(gameId);
     }
 
-    @GetMapping(value = "/nextGame")
+    @PostMapping(value = "/players")
     @ResponseBody
     public Player playGame() {
         Date currentTime = Calendar.getInstance().getTime();
@@ -64,7 +64,7 @@ public class GameService {
         return newPlayer;
     }
 
-    @GetMapping(value = "/{gameId}/questions")
+    @GetMapping(value = "/games/{gameId}/questions")
     @ResponseBody
     public List<Question> getQuestions(@RequestParam(name = "gameId") Integer gameId) {
         //populate te questions for this game
@@ -84,10 +84,12 @@ public class GameService {
         return gameQuestionsMap.get(gameId);
     }
 
-    @PostMapping(value = "/answer")
-    public void saveAnswer(@RequestParam(name = "answerId") Integer answerId, @RequestParam(name = "playerId") Integer playerId) {
+    @PostMapping(value = "/players/{playerId}/answer/{answerId}")
+    @ResponseBody
+    public Player saveAnswer(@RequestParam(name = "answerId") Integer answerId, @RequestParam(name = "playerId") Integer playerId) {
+        Player player = null;
         if (answerId != null) {
-            Player player = playerRepository.getOne(playerId);
+            player = playerRepository.getOne(playerId);
             Answer answer = answerRepository.getOne(answerId);
             if (answer.getCorrect()) {
                 player.setScore(player.getScore() + 1);
@@ -104,5 +106,7 @@ public class GameService {
 
             playerRepository.save(player);
         }
+
+        return player;
     }
 }
