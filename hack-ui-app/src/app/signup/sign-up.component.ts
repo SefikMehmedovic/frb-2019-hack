@@ -9,6 +9,7 @@ import { SignUpService } from './sign-up.service';
 })
 export class SignUpComponent implements OnInit{
 
+<<<<<<< Updated upstream
     currentPlayer: Player;
     players: Player[];
 
@@ -21,6 +22,18 @@ export class SignUpComponent implements OnInit{
     getPlayers(): void{
         this.signUpService.getPlayers().subscribe(players => this.players = players); 
     }
+=======
+export class SignUpComponent implements OnInit{
+>>>>>>> Stashed changes
 
+    currentPlayer: Player;
+    players: Player[];
 
+    constructor(private signUpService: SignUpService){
+
+    }
+
+    ngOnInit(){
+        //this.getPlayers();
+    }
 }
