@@ -2,6 +2,9 @@
 <div style="text-align:center">
 
 
-<sign-up *ngIf="showSignUp"></sign-up>
-
+<sign-up *ngIf="!(player$ | async)"></sign-up>
+<div *ngIf=" player$ | async as player">
+  <span>{{ player.id }}</span>
+  <h2>{{ player.name }}</h2>
+</div>
 </div>
