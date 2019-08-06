@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hack-ui-app';
+  showSignUp = true;
+  showConfirmation = false;
+  player = null;
 }
