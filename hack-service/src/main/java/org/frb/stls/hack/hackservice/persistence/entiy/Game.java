@@ -1,10 +1,6 @@
 package org.frb.stls.hack.hackservice.persistence.entiy;
 
-import javax.inject.Named;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -18,6 +14,7 @@ public class Game implements Serializable {
     private Integer id;
 
     @Column(name="START_TIME")
+    @OrderBy
     private Date startTime;
 
     public Integer getId() {
