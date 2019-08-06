@@ -3,7 +3,7 @@
 
 --Schema: question
 
-DROP SCHEMA question CASCADE ;
+DROP SCHEMA IF EXISTS question CASCADE ;
 COMMIT;
 
 CREATE SCHEMA question AUTHORIZATION postgres;
