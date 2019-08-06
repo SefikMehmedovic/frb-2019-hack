@@ -4,9 +4,9 @@ import { Time } from '@angular/common';
   selector: 'confirmation-page',
   templateUrl: './confirmation.component.html'
 })
-// tslint:disable-next-line: class-name
+
 export class confirmationComponent implements OnInit {
-  player: number = 1;
+  player = 1;
   timeRemaining: Time = null;
   // TODO get time remaining
   calculateRemainingGameTime() {
