@@ -5,15 +5,15 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name="GAME")
+@Table(name="game.game")
 public class Game implements Serializable {
     private static final long serialVersionsId = -1;
 
     @Id
-    @Column(name= "ID")
+    @Column(name= "gameid")
     private Integer id;
 
-    @Column(name="START_TIME")
+    @Column(name="starttime")
     @OrderBy
     private Date startTime;
 
