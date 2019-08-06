@@ -10,13 +10,11 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'hack-ui-app';
-  showSignUp$: Observable<boolean>;
   showConfirmation = false;
   player$ : Observable<Player> = null;
 
   constructor(private playerService: PlayerService ){
     this.player$ = this.playerService.getPlayer();
-    //this.showSignUp$ = this.player$.
   }
 
 }
