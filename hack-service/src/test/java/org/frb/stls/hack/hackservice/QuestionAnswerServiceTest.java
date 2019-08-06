@@ -1,4 +1,4 @@
 package org.frb.stls.hack.hackservice;
 
-public class QuestionAnswerServiceTest extends Junit{
+public class QuestionAnswerServiceTest {
 }

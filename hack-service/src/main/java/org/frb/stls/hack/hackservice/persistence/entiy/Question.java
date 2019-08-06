@@ -1,10 +1,13 @@
 package org.frb.stls.hack.hackservice.persistence.entiy;
 
+import javax.inject.Named;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
+@Entity
 @Table(name="QUESTION")
 public class Question implements Serializable {
     private static final long serialVersionsId = -1;
