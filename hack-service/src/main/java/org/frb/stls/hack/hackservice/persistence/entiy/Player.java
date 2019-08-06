@@ -1,19 +1,17 @@
 package org.frb.stls.hack.hackservice.persistence.entiy;
 
 import javax.inject.Named;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name="game.player")
+@Table(name="player")
 public class Player implements Serializable {
     private static final long serialVersionsId = -1;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "playerid")
     private Integer id;
 

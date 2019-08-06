@@ -40,10 +40,11 @@ public class GameService {
 
     @GetMapping(value = "/games/{gameId}")
     @ResponseBody
-    public Game getGame(@RequestParam(name = "gameId") Integer gameId) {
+    public Game getGame(@PathVariable(name = "gameId") Integer gameId) {
         return gameRepository.getOne(gameId);
     }
 
+    //to test this endppoint, run in dow window: curl --request POST http://localhost:8080/api/players
     @PostMapping(value = "/players")
     @ResponseBody
     public Player playGame() {
@@ -51,7 +52,7 @@ public class GameService {
         List<Game> games = gameRepository.findAll();
 
         Game nextGame = games.stream()
-                .filter(game-> game.getStartTime().after(currentTime))
+                .filter(game-> isStartTimeAfterCurrentTime(game.getStartTime(), currentTime))
                 .findFirst().orElse(null);
 
         Player newPlayer = new Player();
@@ -66,7 +67,7 @@ public class GameService {
 
     @GetMapping(value = "/games/{gameId}/questions")
     @ResponseBody
-    public List<Question> getQuestions(@RequestParam(name = "gameId") Integer gameId) {
+    public List<Question> getQuestions(@PathVariable(name = "gameId") Integer gameId) {
         //populate te questions for this game
         if (gameQuestionsMap.isEmpty() || gameQuestionsMap.get(gameId) == null) {
             List<Question> questions = questionAnswerService.getQuestions(DEFAULT_QUESTION_NUMBERS);
@@ -84,9 +85,10 @@ public class GameService {
         return gameQuestionsMap.get(gameId);
     }
 
+    //to test this endppoint, run in dow window: curl --request POST http://localhost:8080/api/players/1/answer/1
     @PostMapping(value = "/players/{playerId}/answer/{answerId}")
     @ResponseBody
-    public Player saveAnswer(@RequestParam(name = "answerId") Integer answerId, @RequestParam(name = "playerId") Integer playerId) {
+    public Player saveAnswer(@PathVariable(name = "answerId") Integer answerId, @PathVariable(name = "playerId") Integer playerId) {
         Player player = null;
         if (answerId != null) {
             player = playerRepository.getOne(playerId);
@@ -108,5 +110,17 @@ public class GameService {
         }
 
         return player;
+    }
+
+    private boolean isStartTimeAfterCurrentTime(Date startTime, Date currentTime) {
+        if (startTime.getHours() < currentTime.getHours()) {
+            return false;
+        }
+        if (startTime.getHours() > currentTime.getHours()) {
+            return true;
+
+        } else {
+            return (startTime.getMinutes() > currentTime.getMinutes());
+        }
     }
 }

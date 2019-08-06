@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name="question.question")
+@Table(name="question")
 public class Question implements Serializable {
     private static final long serialVersionsId = -1;
 
@@ -17,7 +17,7 @@ public class Question implements Serializable {
     private Integer id;
 
     @Column(name= "questiontext")
-    private Integer text;
+    private String text;
 
     public Integer getId() {
         return id;
@@ -27,11 +27,11 @@ public class Question implements Serializable {
         this.id = id;
     }
 
-    public Integer getText() {
+    public String getText() {
         return text;
     }
 
-    public void setText(Integer text) {
+    public void setText(String text) {
         this.text = text;
     }
 }
