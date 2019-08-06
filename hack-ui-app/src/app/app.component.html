@@ -1,7 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
 
+<div *ngIf="showSignUp"> <sign-up></sign-up> </div>
 
-<sign-up *ngIf="showSignUp"></sign-up>
+{{ showSignUp }}
 
+<!--<confirmation-page *ngIf="showConfirmation"></confirmation-page> -->
 </div>

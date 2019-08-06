@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @Input() myEvent = new EventEmitter();
   title = 'hack-ui-app';
-  showSignUp = true;
+
+  public showSignUp = true;
   showConfirmation = false;
   player = null;
+
+  toggleShowSignUp() {
+    this.showSignUp = false;
+    // this.showConfirmation = true;
+    this.myEvent.emit(this.toggleShowSignUp);
+    alert('toggleShowSignUp');
+  }
+
 }
