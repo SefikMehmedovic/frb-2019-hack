@@ -3,17 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SignUpComponent } from './signup/sign-up.component';
 
 import { confirmationComponent } from "./confirmation/confirmation.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    confirmationComponent
+    confirmationComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
