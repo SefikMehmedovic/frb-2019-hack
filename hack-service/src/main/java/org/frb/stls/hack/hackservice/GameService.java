@@ -9,10 +9,12 @@ import org.frb.stls.hack.hackservice.persistence.repositories.GameRepository;
 import org.frb.stls.hack.hackservice.persistence.repositories.PlayerRepository;
 import org.frb.stls.hack.hackservice.persistence.repositories.QuestionRepository;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import javax.inject.Inject;
 import java.util.Calendar;
@@ -39,6 +41,7 @@ public class GameService {
 //    @RequestMapping("/games")
     @GetMapping(value = "/nextGame")
     @ResponseBody
+
     public Player playGame() {
         Date currentTime = Calendar.getInstance().getTime();
         List<Game> games = gameRepository.findAll();

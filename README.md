@@ -1,2 +1,3 @@
-# frb-2019-hack
+FRB 2019 Hackathon
+Team 4
 FRB 2019 Hackathon
