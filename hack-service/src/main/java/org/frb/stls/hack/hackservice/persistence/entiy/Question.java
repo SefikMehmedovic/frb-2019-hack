@@ -8,15 +8,15 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name="QUESTION")
+@Table(name="question.question")
 public class Question implements Serializable {
     private static final long serialVersionsId = -1;
 
     @Id
-    @Column(name= "ID")
+    @Column(name= "questionid")
     private Integer id;
 
-    @Column(name= "TEXT")
+    @Column(name= "questiontext")
     private Integer text;
 
     public Integer getId() {

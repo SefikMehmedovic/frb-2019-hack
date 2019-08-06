@@ -8,18 +8,21 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name="ANSWER")
+@Table(name="question.answer")
 public class Answer implements Serializable {
     private static final long serialVersionsId = -1;
     @Id
-    @Column(name= "ID")
+    @Column(name= "answerid")
     private Integer id;
 
-    @Column(name= "QUESTION_ID")
+    @Column(name= "questionid")
     private Integer questionId;
 
-    @Column(name= "CORRECT")
+    @Column(name= "correctflag")
     private Boolean correct;
+
+    @Column(name= "answertext")
+    private String answerText;
 
     public Integer getId() {
         return id;
@@ -43,5 +46,13 @@ public class Answer implements Serializable {
 
     public void setCorrect(Boolean correct) {
         this.correct = correct;
+    }
+
+    public String getAnswerText() {
+        return answerText;
+    }
+
+    public void setAnswerText(String answerText) {
+        this.answerText = answerText;
     }
 }
