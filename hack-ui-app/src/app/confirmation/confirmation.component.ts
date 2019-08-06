@@ -5,7 +5,7 @@ import { Time } from '@angular/common';
   templateUrl: './confirmation.component.html'
 })
 
-export class confirmationComponent implements OnInit {
+export class ConfirmationComponent implements OnInit {
   player = 1;
   timeRemaining: Time = null;
   // TODO get time remaining
