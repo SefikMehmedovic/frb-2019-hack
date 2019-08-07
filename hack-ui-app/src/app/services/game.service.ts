@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { Question } from '../question';
 import { HttpClient } from '@angular/common/http';
-import { QUESTION } from '../mock-question';
+//import { QUESTION } from '../mock-question';
 import { Game } from '../model/game';
 import { GAMES } from '../model/mock-game';
 
@@ -11,7 +11,10 @@ import { GAMES } from '../model/mock-game';
 })
 export class GameService {
   private _game: BehaviorSubject<Game>;
+  private _question: BehaviorSubject<Question>;
+
     constructor(private httpClient: HttpClient) {
+     // this._question = <BehaviorSubject<Question>> new BehaviorSubject(null);
     }
     loadGame(gameId: number) {
       this._game.next(GAMES[0]);
@@ -25,8 +28,8 @@ export class GameService {
       return this.httpClient.get<Question[]>('/api/games/' + gameId + '/questions');
     }
 
-    // getGameQuestions(): Observable<Question[]>{
-    //   return of(QUESTION);
-    // }
+    //  getGameQuestions(): Observable<Question[]>{
+    //    return of(QUESTION);
+    //  }
 }
 
