@@ -1,7 +1,5 @@
 
 import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
-
-import { Component } from '@angular/core';
 import { Player } from './player';
 import { PlayerService } from './services/player.service';
 import { Observable } from 'rxjs';
@@ -20,17 +18,15 @@ export class AppComponent {
   showConfirmation = false;
   player = null;
 
+  player$: Observable<Player> = null;
+  constructor(private playerService: PlayerService ) {
+    this.player$ = this.playerService.getPlayer();
+  }
   toggleShowSignUp() {
     this.showSignUp = false;
+    this.showConfirmation = false;
     // this.showConfirmation = true;
     this.myEvent.emit(this.toggleShowSignUp);
     alert('toggleShowSignUp');
-
-  showConfirmation = false;
-  player$ : Observable<Player> = null;
-
-  constructor(private playerService: PlayerService ){
-    this.player$ = this.playerService.getPlayer();
   }
-
 }
