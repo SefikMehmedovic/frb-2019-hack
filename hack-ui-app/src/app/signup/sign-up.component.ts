@@ -23,7 +23,7 @@ export class SignUpComponent implements OnInit {
     this.comp.toggleShowSignUp();
   }
 
-   
+
     constructor(private playerService: PlayerService){
 
     }
