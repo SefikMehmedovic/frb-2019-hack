@@ -65,6 +65,37 @@ public class GameService {
         return newPlayer;
     }
 
+    //to test this endppoint, run in dow window: curl --request POST http://localhost:8080/api/games/generateGames
+    @PostMapping(value = "/games/generateGames")
+    @ResponseBody
+    public List<Game> generateGame() {
+        int hours = 0;
+        Integer gameId = 1;
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, 7);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        Date currentTime = cal.getTime();
+        for (int i = 0; i < 10; i++) {
+            Game game = new Game();
+            game.setId(gameId);
+            game.setStartTime(cal.getTime());
+            hours = hours + 1;
+            gameId = gameId + 1;
+            cal.set(Calendar.HOUR_OF_DAY, hours);
+            gameRepository.save(game);
+        }
+        return gameRepository.findAll();
+    }
+
+    //to test this endppoint, run in dow window: curl --request POST http://localhost:8080/api/games/deleteGames
+    @PostMapping(value = "/games/deleteGames")
+    @ResponseBody
+    public List<Game> deleteGames() {
+        gameRepository.deleteAll();
+        return gameRepository.findAll();
+    }
+
     @GetMapping(value = "/games/{gameId}/questions")
     @ResponseBody
     public List<Question> getQuestions(@PathVariable(name = "gameId") Integer gameId) {
