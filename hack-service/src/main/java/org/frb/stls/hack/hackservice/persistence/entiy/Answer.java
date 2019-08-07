@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name="answer")
+@Table(name="answer", schema = "question")
 public class Answer implements Serializable {
     private static final long serialVersionsId = -1;
     @Id

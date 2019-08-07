@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name="game")
+@Table(name="game", schema = "game")
 public class Game implements Serializable {
     private static final long serialVersionsId = -1;
 

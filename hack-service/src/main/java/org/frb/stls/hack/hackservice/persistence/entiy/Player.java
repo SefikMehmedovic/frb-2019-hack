@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name="player")
+@Table(name="player", schema = "game")
 public class Player implements Serializable {
     private static final long serialVersionsId = -1;
 
