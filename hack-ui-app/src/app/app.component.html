@@ -1,6 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
 
+<div *ngIf="showSignUp"> <sign-up></sign-up> </div>
+
+
+{{ showSignUp }}
+
+<!--<confirmation-page *ngIf="showConfirmation"></confirmation-page> -->
 
 <sign-up *ngIf="!(player$ | async)"></sign-up>
 <div *ngIf=" player$ | async as player">

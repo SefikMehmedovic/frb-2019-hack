@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
-import { CommonModule } from '@angular/common'
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './signup/sign-up.component';
@@ -24,6 +24,10 @@ import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http'
     PlayerService,
     GameService
   ],
+  exports: [
+    AppComponent
+  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

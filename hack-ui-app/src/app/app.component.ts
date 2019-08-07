@@ -1,7 +1,11 @@
+
+import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
+
 import { Component } from '@angular/core';
 import { Player } from './player';
 import { PlayerService } from './services/player.service';
 import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -9,7 +13,19 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @Input() myEvent = new EventEmitter();
   title = 'hack-ui-app';
+
+  public showSignUp = true;
+  showConfirmation = false;
+  player = null;
+
+  toggleShowSignUp() {
+    this.showSignUp = false;
+    // this.showConfirmation = true;
+    this.myEvent.emit(this.toggleShowSignUp);
+    alert('toggleShowSignUp');
+
   showConfirmation = false;
   player$ : Observable<Player> = null;
 
