@@ -3,7 +3,14 @@
 
 <div *ngIf="showSignUp"> <sign-up></sign-up> </div>
 
+
 {{ showSignUp }}
 
 <!--<confirmation-page *ngIf="showConfirmation"></confirmation-page> -->
+
+<sign-up *ngIf="!(player$ | async)"></sign-up>
+<div *ngIf=" player$ | async as player">
+  <span>{{ player.id }}</span>
+  <h2>{{ player.name }}</h2>
+</div>
 </div>

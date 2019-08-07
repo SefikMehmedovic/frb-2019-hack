@@ -1,29 +1,27 @@
 package org.frb.stls.hack.hackservice.persistence.entiy;
 
 import javax.inject.Named;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name="PLAYER")
+@Table(name="player")
 public class Player implements Serializable {
     private static final long serialVersionsId = -1;
 
     @Id
-    @Column(name= "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name= "playerid")
     private Integer id;
 
-    @Column(name= "GAME_ID")
+    @Column(name= "gameid")
     private Integer gameId;
 
-    @Column(name= "SCORE")
+    @Column(name= "score")
     private Integer score;
 
-    @Column(name= "NAME")
+    @Column(name= "playernm")
     private String name;
 
     public Integer getId() {

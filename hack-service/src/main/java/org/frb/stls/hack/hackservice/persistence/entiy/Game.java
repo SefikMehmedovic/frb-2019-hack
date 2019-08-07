@@ -1,23 +1,20 @@
 package org.frb.stls.hack.hackservice.persistence.entiy;
 
-import javax.inject.Named;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name="GAME")
+@Table(name="game")
 public class Game implements Serializable {
     private static final long serialVersionsId = -1;
 
     @Id
-    @Column(name= "ID")
+    @Column(name= "gameid")
     private Integer id;
 
-    @Column(name="START_TIME")
+    @Column(name="starttime")
+    @OrderBy
     private Date startTime;
 
     public Integer getId() {
