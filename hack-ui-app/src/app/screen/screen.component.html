@@ -1,0 +1,49 @@
+<div class="screen">
+    <header>
+        <title>screen</title>
+    </header>
+    <div>
+        
+    </div>
+</div>
+
+<div class="sign-up">
+        <link rel="stylesheet" href="https://bootswatch.com/4/solar/bootstrap.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../../styles.css">
+        <div class="museum">    
+                <img src="/hack-ui-app/src/assets/images/museum.png">
+        </div>
+    <div>
+        <h1>All About the Economy Trivia Game</h1>
+    </div>
+    <div>
+       <h2> Please get your phones out and take a picture of the QR code</h2>
+    </div>
+
+    <html>
+                <title>JOIN NOW!</title>
+                <h2>ADD bit.ly and/or QR code</h2>
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+                <script type="text/javascript">
+                    function generateBarCode()
+                    {
+                        var nric = $('#text').val();
+                        var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + nric + '&amp;size=50x50';
+                        $('#barcode').attr('src', url);
+                    }
+                </script>
+
+            <body>
+                <input id="text" type="text" 
+                    value="NRIC or Work Permit" style="Width:20%"
+                    onblur='generateBarCode();' /> 
+        
+              <img id='barcode' 
+                    src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" 
+                    alt="" 
+                    title="HELLO" 
+                    width="50" 
+                    height="50" />
+            </body>
+        </html>
+</div>
