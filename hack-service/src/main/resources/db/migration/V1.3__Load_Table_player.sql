@@ -1,10 +1,10 @@
 
 --  V1.3__Load_Table_player.sql
 
-DELETE FROM player;
+DELETE FROM game.player;
 COMMIT;
 
-INSERT INTO player (gameid, playernm, score) VALUES
+INSERT INTO game.player (gameid, playernm, score) VALUES
   (1, 'player01', 12),
   (1, 'player02', 15),
   (1, 'player03', 8),

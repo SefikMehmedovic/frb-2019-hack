@@ -1,10 +1,10 @@
 
 --  V1.5__Load_Table_answer.sql
 
-DELETE FROM answer;
+DELETE FROM question.answer;
 COMMIT;
 
-INSERT INTO answer (questionid, answertext, correctflag) VALUES
+INSERT INTO question.answer (questionid, answertext, correctflag) VALUES
   (1, '8', false),
   (1, '12', true),
   (1, '15', false),
