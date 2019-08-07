@@ -10,15 +10,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SignUpService {
 
-    constructor(private httpClient: HttpClient){
+    constructor(private httpClient: HttpClient) {
     }
-    //TODO: need more logic?
+    // TODO: need more logic?
 
-    signUp(){
+    signUp() {
         return this.httpClient.post('/api/players', null);
     }
 
-    getPlayers(): Observable<Player[]>{
+    getPlayers(): Observable<Player[]> {
         return of(PLAYERS);
     }
 }
