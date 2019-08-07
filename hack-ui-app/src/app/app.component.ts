@@ -14,19 +14,19 @@ export class AppComponent {
   @Input() myEvent = new EventEmitter();
   title = 'hack-ui-app';
 
-  public showSignUp = true;
-  showConfirmation = false;
-  player = null;
+  // public showSignUp = true;
+  // showConfirmation = false;
+ // player = null;
 
   player$: Observable<Player> = null;
   constructor(private playerService: PlayerService ) {
     this.player$ = this.playerService.getPlayer();
   }
   toggleShowSignUp() {
-    this.showSignUp = false;
-    this.showConfirmation = false;
+   // this.showSignUp = false;
+    // this.showConfirmation = false;
     // this.showConfirmation = true;
     this.myEvent.emit(this.toggleShowSignUp);
-    alert('toggleShowSignUp');
+   // alert('toggleShowSignUp');
   }
 }

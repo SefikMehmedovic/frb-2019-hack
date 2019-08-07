@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class PlayerService {
-    private _player : BehaviorSubject<Player>;
+    private _player: BehaviorSubject<Player>;
 
-    constructor(private httpClient: HttpClient){
-        this._player = <BehaviorSubject<Player>>new BehaviorSubject(null);
+    constructor(private httpClient: HttpClient) {
+        this._player = <BehaviorSubject<Player>> new BehaviorSubject(null);
     }
 
     signUp() {
@@ -21,11 +21,16 @@ export class PlayerService {
         this._player.next(PLAYERS[0]);
     }
 
-    getPlayer() : Observable<Player>{
+    nextQuestion()
+    {
+
+    }
+
+    getPlayer(): Observable<Player> {
         return this._player.asObservable();
     }
 
-    getPlayers(): Observable<Player[]>{
+    getPlayers(): Observable<Player[]> {
         return of(PLAYERS);
     }
 }

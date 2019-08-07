@@ -4,13 +4,14 @@
 </header>
 <div class="container-Fluid">
   <h2>You're signed up!</h2>
-    <h1> You are Player {{ player }} </h1>
+    <h1> You are Player: {{ (player$ | async).name }}</h1>
+    <li *ngFor="let player of players"
+      [class.selected]="hero === selectedHero"
+      (click)="onSelect(player)">
+      <span class="badge">{{player.id}}</span> {{player.name}}
+    </li>
 </div>
-<li *ngFor="let player of players"
-    [class.selected]="hero === selectedHero"
-    (click)="onSelect(player)">
-    <span class="badge">{{player.id}}</span> {{player.name}}
-  </li>
+
 <div class="container-Fluid">
   <h3> Game is Starting in:
     <!--countdown [config]="{leftTime: 1000}">$!m!:$!s!</countdown>-->

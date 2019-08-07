@@ -10,23 +10,26 @@ import { GAMES } from '../model/mock-game';
   providedIn: 'root',
 })
 export class GameService {
-  private _game : BehaviorSubject<Game>;
-    constructor(private httpClient: HttpClient){
+  private _game: BehaviorSubject<Game>;
+  private _question: BehaviorSubject<Question>;
+
+    constructor(private httpClient: HttpClient) {
+     // this._question = <BehaviorSubject<Question>> new BehaviorSubject(null);
     }
-    loadGame(gameId : number){
+    loadGame(gameId: number) {
       this._game.next(GAMES[0]);
     }
 
-    getGame() : Observable<Game>{
+    getGame(): Observable<Game> {
       return this._game.asObservable();
     }
 
-    generateQuestion(gameId) : Observable <Question[]>{
-      return this.httpClient.get<Question[]>('/api/games/'+gameId+'/questions');
+    generateQuestion(gameId): Observable <Question[]> {
+      return this.httpClient.get<Question[]>('/api/games/' + gameId + '/questions');
     }
 
-    // getGameQuestions(): Observable<Question[]>{
-    //   return of(QUESTION);
-    // }
+    //  getGameQuestions(): Observable<Question[]>{
+    //    return of(QUESTION);
+    //  }
 }
 

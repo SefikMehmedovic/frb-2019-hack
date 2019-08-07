@@ -14,21 +14,19 @@ import { PlayerService } from '../services/player.service';
 
 export class SignUpComponent implements OnInit {
 
-  private comp: AppComponent;
 
   ngOnInit() {
   }
 
-   callMe() {
-    this.comp.toggleShowSignUp();
-  }
+  //  callMe() {
+  //   this.comp.toggleShowSignUp();
+  // }
 
-
-    constructor(private playerService: PlayerService){
+    constructor(private playerService: PlayerService) {
 
     }
 
-    signUp(){
+    signUp() {
         this.playerService.signUp();
     }
 }
