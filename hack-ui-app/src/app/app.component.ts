@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Player } from './player';
+import { PlayerService } from './services/player.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +10,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hack-ui-app';
-  showSignUp = true;
   showConfirmation = false;
-  player = null;
+  player$ : Observable<Player> = null;
+
+  constructor(private playerService: PlayerService ){
+    this.player$ = this.playerService.getPlayer();
+  }
+
 }

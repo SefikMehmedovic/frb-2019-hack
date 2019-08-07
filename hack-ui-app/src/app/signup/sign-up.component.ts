@@ -1,5 +1,8 @@
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Player } from '../player';
+import { SignUpService } from './sign-up.service';
+import { PlayerService } from '../services/player.service';
 
 @Component({
     selector: 'sign-up',
@@ -8,4 +11,12 @@ import { Component } from '@angular/core';
 
 export class SignUpComponent {
 
+   
+    constructor(private playerService: PlayerService){
+
+    }
+
+    signUp(){
+        this.playerService.signUp();
+    }
 }
